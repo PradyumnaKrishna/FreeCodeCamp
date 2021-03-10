@@ -44,7 +44,6 @@ class Category:
         result = f"{self.category.center(30, '*')}\n"
         total = 0
         for transaction in self.ledger:
-            # if description is not given
             try:
                 description = transaction["description"][:23].ljust(23)
             except Exception:
@@ -75,11 +74,6 @@ def create_spend_chart(categories):
     for categ in categories:
         per = (amts[categ]/total_amt_spent)*100
         per = int(per)
-        # rem = per % 10
-        # if rem < 5:
-        #     per = int(per/10)*10
-        # else:
-        #     per = int((per+10)/10)*10
         percent[categ] = per
 
     # starting at 100 and stopping at 0 by dec 10 each time
